@@ -10,13 +10,17 @@ PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
 # Configure X
 xsetroot -cursor_name left_ptr &
 xrdb -merge ~/.Xdefaults &
-setxkbmap -option "ctrl:nocaps" &
+
+# Remap caps lock to backspace
+setxkbmap -option caps:backspace
+setxkbmap -option shift:both_capslock
+xmodmap -e "clear Lock"
 
 # Start a window compositor. This ensures Google Chrome paints correctly.
 xcompmgr -n &
 
 # Start the system tray
-tray &
+#tray &
 
 # Start two terminals
 gnome-terminal &
@@ -24,11 +28,17 @@ gnome-terminal &
 
 # Start a browser
 google-chrome &
+chromium-browser &
+
+keepassx &
+skype &
+mysql-workbench &
+dropbox start &
 
 # Start screensaver
-gnome-screensaver &
+#gnome-screensaver &
 
 # Start sound server
-pulseaudio --start --log-target=syslog &
+#pulseaudio --start --log-target=syslog &
 
-gnome-session &
+#gnome-session &

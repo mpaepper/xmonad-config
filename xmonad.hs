@@ -67,17 +67,20 @@ myWorkspaces = ["1:term","2:comm.","3:pw","4:db","5:vpn"] ++ map show [6..9]
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Chromium"       --> doShift "2:web"
-    , className =? "Google-chrome"  --> doShift "2:web"
-    , resource  =? "desktop_window" --> doIgnore
-    , className =? "Galculator"     --> doFloat
-    , className =? "Steam"          --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "gpicview"       --> doFloat
-    , className =? "MPlayer"        --> doFloat
-    , className =? "VirtualBox"     --> doShift "4:vm"
-    , className =? "Xchat"          --> doShift "5:media"
-    , className =? "stalonetray"    --> doIgnore
+    [ className =? "Chromium-browser"   --> doShift "2:comm."
+    , className =? "Google-chrome"      --> doShift "3:pw"
+    , resource  =? "desktop_window"     --> doIgnore
+    , className =? "Galculator"         --> doFloat
+    , className =? "Steam"              --> doFloat
+    , className =? "Gimp"               --> doFloat
+    , resource  =? "gpicview"           --> doFloat
+    , className =? "MPlayer"            --> doFloat
+    , className =? "VirtualBox"         --> doShift "4:vm"
+    , className =? "stalonetray"        --> doIgnore
+    , className =? "Keepassx"           --> doShift "3:pw"
+    , className =? "Skype"              --> doShift "2:comm."
+    , className =? "Mysql-workbench-bin" --> doShift "4:db"
+    , className =? "Qikea"              --> doShift "5:vpn"
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
 
@@ -152,6 +155,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Use this to launch programs without a key binding.
   , ((modMask, xK_p),
      spawn myLauncher)
+
+  , ((modMask, xK_c), spawn "gnome-calculator")
 
   -- Take a selective screenshot using the command specified by mySelectScreenshot.
   , ((modMask .|. shiftMask, xK_p),

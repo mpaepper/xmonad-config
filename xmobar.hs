@@ -15,5 +15,6 @@ Config {
     sepChar = "%",
     alignSep = "}{",
     allDesktops = True,
+    overrideRedirect = False, -- https://stackoverflow.com/questions/36286004/xmobar-is-hidden-on-first-xmonad-workspace
     template = "%StdinReader% }{ %multicpu%   %memory% |  <fc=#FFFFCC>%date%</fc>   |   Volume: <fc=#b2b2ff>%volumelevel%</fc> | %bat0%"
 }
