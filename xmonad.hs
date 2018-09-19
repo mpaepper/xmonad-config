@@ -74,11 +74,12 @@ myManageHook = composeAll
     , className =? "Steam"              --> doFloat
     , className =? "Gimp"               --> doFloat
     , resource  =? "gpicview"           --> doFloat
+    , resource =?  "screenkey"          --> doF W.focusDown
     , className =? "MPlayer"            --> doFloat
     , className =? "VirtualBox"         --> doShift "4:vm"
     , className =? "stalonetray"        --> doIgnore
     , className =? "Keepassx"           --> doShift "3:pw"
-    , className =? "Skype"              --> doShift "2:comm."
+    , className =? "Mattermost"              --> doShift "2:comm."
     , className =? "Mysql-workbench-bin" --> doShift "4:db"
     , className =? "Qikea"              --> doShift "5:vpn"
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
