@@ -98,8 +98,8 @@ myManageHook = composeAll
 myLayout = avoidStruts (
     Tall 1 (3/100) (1/2) |||
     tabbed shrinkText tabConfig |||
-    Full |||
-    spiral (6/7))
+    spiral (6/7)) |||
+    noBorders (fullscreenFull Full)
 
 
 ------------------------------------------------------------------------
@@ -275,6 +275,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_period),
      sendMessage (IncMasterN (-1)))
 
+  , ((modMask, xK_b), sendMessage ToggleStruts)
   -- Toggle the status bar gap.
   -- TODO: update this binding with avoidStruts, ((modMask, xK_b),
   
