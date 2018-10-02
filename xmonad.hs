@@ -49,7 +49,7 @@ myLauncher = "$(~/.cabal/bin/yeganesh -x -- -fn '-*-terminus-*-r-normal-*-*-120-
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:term","2:comm.","3:pw","4:db","5:vpn"] ++ map show [6..9]
+myWorkspaces = ["1:term","2:comm.","3:pw","4:db"] ++ map show [6..9]
 
 
 ------------------------------------------------------------------------
@@ -81,7 +81,6 @@ myManageHook = composeAll
     , className =? "Keepassx"           --> doShift "3:pw"
     , className =? "Mattermost"              --> doShift "2:comm."
     , className =? "Mysql-workbench-bin" --> doShift "4:db"
-    , className =? "Qikea"              --> doShift "5:vpn"
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
 
