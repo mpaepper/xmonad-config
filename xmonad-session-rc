@@ -33,7 +33,7 @@ chromium-browser &
 keepassx &
 mattermost-desktop &
 mysql-workbench &
-dropbox start &
+megasync &
 
 # Start screensaver
 #gnome-screensaver &
