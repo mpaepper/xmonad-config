@@ -13,9 +13,10 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
-import XMonad.Layout.ThreeColumns
+import XMonad.Layout.DragPane
+import XMonad.Layout.TwoPane
+import XMonad.Layout.OneBig
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
@@ -95,9 +96,10 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 myLayout = avoidStruts (
-    Tall 1 (3/100) (1/2) |||
-    tabbed shrinkText tabConfig |||
-    spiral (6/7)) |||
+    TwoPane (3/100) (1/2) |||
+    dragPane Horizontal (1/10) (1/2) |||
+    OneBig (3/4) (3/4) |||
+    tabbed shrinkText tabConfig) |||
     noBorders (fullscreenFull Full)
 
 
