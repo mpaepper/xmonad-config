@@ -174,11 +174,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Decrease volume.
   , ((0, xF86XK_AudioLowerVolume),
-     spawn "amixer -q set Master 5%-")
+     spawn "amixer -q -D pulse set Master 5%-")
 
   -- Increase volume.
   , ((0, xF86XK_AudioRaiseVolume),
-     spawn "amixer -q set Master 5%+")
+     spawn "amixer -q -D pulse set Master 5%+")
 
   -- Decrease brightness.
   , ((0, xF86XK_MonBrightnessDown),
@@ -194,11 +194,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Decrease volume.
   , ((modMask .|. controlMask, xK_j),
-     spawn "amixer -q set Master 5%-")
+     spawn "amixer -q -D pulse set Master 5%-")
 
   -- Increase volume.
   , ((modMask .|. controlMask, xK_k),
-     spawn "amixer -q set Master 5%+")
+     spawn "amixer -q -D pulse set Master 5%+")
 
   -- Audio previous.
   , ((0, 0x1008FF16),
